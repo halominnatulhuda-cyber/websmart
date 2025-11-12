@@ -1,58 +1,14 @@
-import { aboutPageData } from './about-data';
+import { GALLERY_DATA } from './constants';
+import { SearchResult } from './types';
 
-export interface SearchResult {
-  title: string;
-  keywords: string[];
-  tags: string[];
-  targetId: string;
-  page: string;
-}
+export const searchIndex: SearchResult[] = [];
 
-export const searchIndex: SearchResult[] = [
-  {
-    title: 'Profil Yayasan Minnatul Huda',
-    keywords: ['profil', 'tentang kami', 'sejarah'],
-    tags: ['Profil', 'Yayasan'],
-    targetId: 'profile',
-    page: '/',
-  },
-  {
-    title: 'Visi & Misi',
-    keywords: ['visi', 'misi', 'tujuan', 'cita-cita'],
-    tags: ['Visi', 'Misi'],
-    targetId: 'visi-misi',
-    page: '/',
-  },
-  {
-    title: 'Nilai Inti (Core Values)',
-    keywords: ['nilai', 'values', 'taqwa', 'amanah', 'disiplin', 'peduli'],
-    tags: ['Nilai Inti'],
-    targetId: 'nilai-inti',
-    page: '/',
-  },
-  {
-    title: 'Kurikulum Pendidikan',
-    keywords: ['kurikulum', 'pendidikan', 'sistem belajar'],
-    tags: ['Kurikulum'],
-    targetId: 'kurikulum',
-    page: '/',
-  },
-  {
-    title: 'Tim Kami',
-    keywords: ['tim', 'pengurus', 'kepala sekolah', 'pimpinan'],
-    tags: ['Tim'],
-    targetId: 'tim-kami',
-    page: '/',
-  },
-];
-
-// Add team members to search index
-aboutPageData.team.forEach(member => {
+// Index Gallery Data
+GALLERY_DATA.forEach(item => {
   searchIndex.push({
-    title: `${member.name} - ${member.role}`,
-    keywords: [member.name, member.role],
-    tags: ['Tim'],
-    targetId: 'tim-kami',
-    page: '/',
+    title: item.judul,
+    keywords: [item.kategori, ...item.judul.toLowerCase().split(' '), ...item.deskripsi.toLowerCase().split(' ').slice(0, 5)],
+    tags: [item.kategori.charAt(0).toUpperCase() + item.kategori.slice(1)],
+    targetId: 'gallery-page',
   });
 });
