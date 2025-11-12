@@ -13,6 +13,13 @@ export interface FeaturedProgram {
   description: string;
 }
 
+export interface GalleryItem {
+  url: string;
+  title: string;
+  description: string;
+  date: string;
+}
+
 export interface School {
   id: string;
   name: string;
@@ -35,7 +42,7 @@ export interface School {
   mainImage: string;
   youtubeThumbnail: string;
   youtubeUrl: string;
-  gallery: string[];
+  gallery: GalleryItem[];
   achievements: Achievement[];
   detailsUrl: string;
   accentColor: string;
