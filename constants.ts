@@ -1,240 +1,291 @@
-import { School } from './types';
+export const USERS = {
+  "users": [
+    {
+      "id_role": "KS",
+      "username": "kepsek1",
+      "password": "kepsek123",
+      "status": "kepala_sekolah",
+      "nama": "KH. Abdurrahman",
+      "data_file": "kepsek.json"
+    },
+    {
+      "id_role": "AD",
+      "username": "admin1",
+      "password": "admin123",
+      "status": "admin",
+      "nama": "Admin Pondok",
+      "data_file": "admin.json"
+    },
+    {
+      "id_role": "GR",
+      "username": "guru1",
+      "password": "12345",
+      "status": "guru",
+      "nama": "Ustadz Ahmad",
+      "mapel": "Fiqih",
+      "data_file": "guru.json"
+    },
+    {
+      "id_role": "SW",
+      "username": "siswa1",
+      "password": "54321",
+      "status": "siswa",
+      "nama": "Muhammad Iqbal",
+      "kelas": "9A",
+      "data_file": "siswa.json"
+    }
+  ]
+};
 
-export const SCHOOL_DATA: School[] = [
+export const GURU_DATA = {
+  "profil": {
+    "nama": "Ustadz Ahmad",
+    "mapel": "Fiqih",
+    "nip": "G-2025-01"
+  },
+  "jadwal_mengajar": [
+    { "hari": "Senin", "jam": "07.00-09.00", "kelas": "9A" },
+    { "hari": "Rabu", "jam": "10.00-12.00", "kelas": "9B" }
+  ],
+  "daftar_penilaian": [
+    { "nama_siswa": "Ali", "nilai": 88 },
+    { "nama_siswa": "Fatimah", "nilai": 92 }
+  ]
+};
+
+export const SISWA_DATA = {
+  "profil": {
+    "nama": "Muhammad Iqbal",
+    "kelas": "9A",
+    "nis": "SW-1234"
+  },
+  "jadwal_pelajaran": [
+    { "hari": "Senin", "mapel": "Fiqih", "guru": "Ust. Ahmad" },
+    { "hari": "Selasa", "mapel": "Hadits", "guru": "Ust. Rahman" }
+  ],
+  "nilai": [
+    { "mapel": "Fiqih", "nilai": 90 },
+    { "mapel": "Hadits", "nilai": 85 }
+  ]
+};
+
+export const ADMIN_DATA = {
+  "profil": {
+    "nama": "Admin Pondok",
+    "jabatan": "Admin Utama",
+    "id_admin": "AD-001"
+  },
+  "fitur": [
+    "Kelola Data Guru",
+    "Kelola Data Siswa",
+    "Kelola Jadwal",
+    "Kelola Nilai"
+  ]
+};
+
+export const KEPSEK_DATA = {
+  "profil": {
+    "nama": "KH. Abdurrahman",
+    "jabatan": "Kepala Sekolah",
+    "id_kepsek": "KS-001"
+  },
+  "akses": "full",
+  "fitur": [
+    "Lihat Semua Data",
+    "Verifikasi Penilaian",
+    "Kelola Struktur Yayasan",
+    "Analisis Prestasi"
+  ]
+};
+
+// Fix: Add and export SCHOOL_DATA constant to resolve import errors.
+export const SCHOOL_DATA = [
   {
     id: 'sd-minnatul-huda',
-    name: 'SD Minnatul Huda',
+    name: 'SD IT Minnatul Huda',
     logo: 'https://imgur.com/4hdcTD7.png',
-    description: 'Membentuk generasi cerdas, berakhlak mulia, dan berprestasi sejak dini dengan kurikulum terpadu dan lingkungan belajar yang menyenangkan.',
+    description: 'Mencetak generasi Rabbani yang cerdas, kreatif, dan berakhlak mulia.',
     summary: {
       foundedYear: 2010,
-      headmaster: 'Dr. Aisyah S.Pd.I',
+      headmaster: 'Ustadzah Fatimah, S.Pd.I',
     },
-    vision: "Menjadi sekolah dasar Islam unggulan yang mencetak generasi Qur'ani, cerdas, kreatif, dan berakhlak karimah.",
+    vision: 'Menjadi sekolah dasar Islam terpadu unggulan yang menghasilkan generasi Qur\'ani, cerdas, mandiri, dan berakhlakul karimah.',
     mission: [
-      "Menyelenggarakan pendidikan berkualitas yang mengintegrasikan kurikulum nasional dan nilai-nilai Islam.",
-      "Mengembangkan potensi siswa di bidang akademik, non-akademik, dan keagamaan.",
-      "Membiasakan siswa dengan akhlak mulia dalam kehidupan sehari-hari.",
-      "Menciptakan lingkungan belajar yang aman, nyaman, dan Islami.",
+      'Menyelenggarakan pendidikan yang memadukan kurikulum nasional dengan nilai-nilai Islam.',
+      'Mengembangkan potensi siswa di bidang akademik, non-akademik, dan keagamaan.',
+      'Membina siswa agar memiliki karakter Islami yang kuat.',
+      'Menciptakan lingkungan belajar yang nyaman, aman, dan Islami.',
     ],
     featuredPrograms: [
-      { icon: 'book', title: 'Tahfidz Al-Qur\'an', description: 'Program hafalan Al-Qur\'an intensif dengan target juz 30 sebagai standar kelulusan.' },
-      { icon: 'globe', title: 'Kelas Bilingual', description: 'Pembelajaran menggunakan dua bahasa (Indonesia & Inggris) untuk mempersiapkan siswa di era global.' },
-      { icon: 'leaf', title: 'Pendidikan Karakter', description: 'Program pembentukan karakter Islami melalui kegiatan harian, teladan, dan pembiasaan.' },
+      { icon: 'book', title: 'Tahfidz Al-Quran', description: 'Program menghafal Al-Quran dengan target minimal 3 juz setelah lulus.' },
+      { icon: 'globe', title: 'Bilingual Program', description: 'Pembiasaan penggunaan Bahasa Arab dan Inggris dalam kegiatan sehari-hari.' },
+      { icon: 'lab', title: 'Fun Science Club', description: 'Klub sains untuk menumbuhkan rasa ingin tahu dan kreativitas siswa.' },
     ],
     statistics: {
-      students: 450,
-      alumni: 1200,
-      teachers: 35,
-      achievements: 150,
+      students: 350,
+      alumni: 500,
+      teachers: 30,
+      achievements: 45,
       extracurriculars: 12,
     },
-    mainImage: 'https://picsum.photos/seed/sd-main/1200/800',
-    youtubeThumbnail: 'https://picsum.photos/seed/sd-yt/800/450',
+    mainImage: 'https://i.imgur.com/A6tFm2k.jpeg',
+    youtubeThumbnail: 'https://i.imgur.com/hX8eL6k.jpeg',
     youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     gallery: [
-      'https://picsum.photos/seed/sd-gal1/400/300',
-      'https://picsum.photos/seed/sd-gal2/400/300',
-      'https://picsum.photos/seed/sd-gal3/400/300',
-      'https://picsum.photos/seed/sd-gal4/400/300',
-      'https://picsum.photos/seed/sd-gal5/400/300',
-      'https://picsum.photos/seed/sd-gal6/400/300',
+      'https://i.imgur.com/pYxCR2Z.jpeg',
+      'https://i.imgur.com/xO9f0fS.jpeg',
+      'https://i.imgur.com/qR1p8Zg.jpeg',
+      'https://i.imgur.com/oV2D8vJ.jpeg',
+      'https://i.imgur.com/nJ5J0fL.jpeg',
+      'https://i.imgur.com/iJ6m1wR.jpeg',
     ],
     achievements: [
-      {
-        image: 'https://picsum.photos/seed/sd-ach1/400/400',
-        title: 'Juara 1 Olimpiade Sains Nasional',
-        level: 'Nasional',
-        date: '15 Agustus 2023',
-        description: 'Meraih medali emas dalam kompetisi sains paling bergengsi tingkat nasional.',
-      },
-      {
-        image: 'https://picsum.photos/seed/sd-ach2/400/400',
-        title: 'Juara Umum Lomba Cerdas Cermat',
-        level: 'Provinsi',
-        date: '22 Juni 2023',
-        description: 'Menunjukkan keunggulan dalam pengetahuan umum dan kecepatan berpikir.',
-      },
+      { image: 'https://i.imgur.com/T0YV8yD.png', title: 'Juara 1 Lomba Cerdas Cermat PAI', level: 'Tingkat Kabupaten', date: '2023', description: 'Tim Cerdas Cermat PAI berhasil meraih juara pertama.' },
+      { image: 'https://i.imgur.com/uR2Zf8J.png', title: 'Juara 2 Olimpiade Sains Nasional', level: 'Tingkat Provinsi', date: '2022', description: 'Mewakili provinsi dalam ajang OSN tingkat nasional.' },
     ],
     detailsUrl: '#',
-    accentColor: 'border-emerald-500',
-    textColor: 'text-emerald-600',
+    accentColor: 'border-blue-500',
+    textColor: 'text-blue-600',
   },
   {
     id: 'smp-minnatul-huda',
-    name: 'SMP Minnatul Huda',
+    name: 'SMP BP Minnatul Huda',
     logo: 'https://imgur.com/4hdcTD7.png',
-    description: 'Mengembangkan potensi siswa secara akademis dan non-akademis, mempersiapkan mereka menjadi pribadi yang tangguh dan inovatif.',
+    description: 'Membentuk pribadi tangguh, berprestasi, dan berlandaskan iman & takwa.',
     summary: {
       foundedYear: 2005,
-      headmaster: 'Bambang Sutrisno, M.Pd',
+      headmaster: 'Ustadz Abdullah, M.Pd',
     },
-    vision: "Terwujudnya sekolah yang menghasilkan lulusan berprestasi, berdaya saing, inovatif, dan berlandaskan iman dan taqwa.",
+    vision: 'Terwujudnya generasi muda Islam yang unggul dalam prestasi, kokoh dalam iman, dan santun dalam perilaku.',
     mission: [
-      "Melaksanakan pembelajaran aktif, inovatif, kreatif, efektif, dan menyenangkan (PAIKEM).",
-      "Mengembangkan potensi siswa sesuai bakat dan minat melalui kegiatan ekstrakurikuler.",
-      "Membina kemandirian dan jiwa kepemimpinan siswa melalui organisasi.",
-      "Meningkatkan prestasi di bidang akademik dan non-akademik di tingkat regional dan nasional.",
+      'Melaksanakan pembelajaran aktif, inovatif, kreatif, efektif, dan menyenangkan (PAIKEM).',
+      'Mengintegrasikan pendidikan karakter dalam semua aspek kegiatan sekolah.',
+      'Mengembangkan bakat dan minat siswa melalui kegiatan ekstrakurikuler yang beragam.',
+      'Membangun kemitraan yang sinergis dengan orang tua dan masyarakat.',
     ],
     featuredPrograms: [
-      { icon: 'lab', title: 'Science & Robotic Club', description: 'Wadah eksplorasi sains dan teknologi melalui eksperimen dan pembuatan robot.' },
-      { icon: 'speaker', title: 'Public Speaking & Leadership', description: 'Pelatihan untuk meningkatkan kepercayaan diri, kemampuan berbicara di depan umum, dan kepemimpinan.' },
-      { icon: 'briefcase', title: 'Career Orientation', description: 'Program pengenalan dunia kerja dan perguruan tinggi untuk merencanakan masa depan.' },
+      { icon: 'speaker', title: 'Public Speaking & Leadership', description: 'Program pelatihan kepemimpinan dan kemampuan berbicara di depan umum.' },
+      { icon: 'computer', title: 'Digital Literacy', description: 'Pembekalan keterampilan teknologi informasi dan komunikasi yang relevan.' },
+      { icon: 'leaf', title: 'Pesantren Alam', description: 'Kegiatan belajar di alam terbuka untuk membentuk karakter dan kemandirian.' },
     ],
     statistics: {
-      students: 620,
-      alumni: 2500,
-      teachers: 50,
-      achievements: 210,
+      students: 420,
+      alumni: 1200,
+      teachers: 45,
+      achievements: 78,
       extracurriculars: 18,
     },
-    mainImage: 'https://picsum.photos/seed/smp-main/1200/800',
-    youtubeThumbnail: 'https://picsum.photos/seed/smp-yt/800/450',
+    mainImage: 'https://i.imgur.com/A6tFm2k.jpeg',
+    youtubeThumbnail: 'https://i.imgur.com/hX8eL6k.jpeg',
     youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     gallery: [
-      'https://picsum.photos/seed/smp-gal1/400/300',
-      'https://picsum.photos/seed/smp-gal2/400/300',
-      'https://picsum.photos/seed/smp-gal3/400/300',
-      'https://picsum.photos/seed/smp-gal4/400/300',
-      'https://picsum.photos/seed/smp-gal5/400/300',
-      'https://picsum.photos/seed/smp-gal6/400/300',
+      'https://i.imgur.com/pYxCR2Z.jpeg',
+      'https://i.imgur.com/xO9f0fS.jpeg',
+      'https://i.imgur.com/qR1p8Zg.jpeg',
+      'https://i.imgur.com/oV2D8vJ.jpeg',
+      'https://i.imgur.com/nJ5J0fL.jpeg',
+      'https://i.imgur.com/iJ6m1wR.jpeg',
     ],
     achievements: [
-      {
-        image: 'https://picsum.photos/seed/smp-ach1/400/400',
-        title: 'Medali Perak Kompetisi Robotik',
-        level: 'Internasional',
-        date: '10 Desember 2023',
-        description: 'Berhasil merancang dan memprogram robot yang kompetitif di tingkat dunia.',
-      },
-      {
-        image: 'https://picsum.photos/seed/smp-ach2/400/400',
-        title: 'Juara 1 Festival Seni Budaya',
-        level: 'Nasional',
-        date: '05 November 2023',
-        description: 'Menampilkan pertunjukan tari tradisional yang memukau dewan juri.',
-      },
-    ],
-    detailsUrl: '#',
-    accentColor: 'border-teal-500',
-    textColor: 'text-teal-600',
-  },
-  {
-    id: 'smk-minnatul-huda',
-    name: 'SMA / SMK Minnatul Huda',
-    logo: 'https://imgur.com/4hdcTD7.png',
-    description: 'Menyiapkan lulusan yang siap kerja dan siap kuliah, dengan keahlian spesifik dan wawasan global untuk menghadapi tantangan masa depan.',
-    summary: {
-      foundedYear: 2008,
-      headmaster: 'Ir. H. Joko Widodo, M.T.',
-    },
-    vision: "Menjadi lembaga pendidikan kejuruan yang menghasilkan lulusan kompeten, profesional, berjiwa wirausaha, dan berakhlak mulia.",
-    mission: [
-      "Menyelenggarakan pendidikan kejuruan yang relevan dengan kebutuhan industri dan dunia kerja (IDUKA).",
-      "Membekali siswa dengan keterampilan teknis (hard skills) dan non-teknis (soft skills).",
-      "Membangun kerjasama strategis dengan industri untuk program magang dan penyerapan lulusan.",
-      "Menumbuhkan semangat kewirausahaan dan kemandirian pada siswa.",
-    ],
-    featuredPrograms: [
-      { icon: 'computer', title: 'Digital Marketing', description: 'Jurusan yang fokus pada pemasaran online, SEO, SEM, dan media sosial untuk industri modern.' },
-      { icon: 'tools', title: 'Teknik Kendaraan Ringan', description: 'Program keahlian otomotif dengan fasilitas bengkel modern dan kerjasama industri.' },
-      { icon: 'briefcase', title: 'Job Matching & Incubator', description: 'Program penyaluran kerja dan inkubator bisnis untuk siswa yang ingin berwirausaha setelah lulus.' },
-    ],
-    statistics: {
-      students: 800,
-      alumni: 3100,
-      teachers: 75,
-      achievements: 300,
-      extracurriculars: 25,
-    },
-    mainImage: 'https://picsum.photos/seed/smk-main/1200/800',
-    youtubeThumbnail: 'https://picsum.photos/seed/smk-yt/800/450',
-    youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    gallery: [
-      'https://picsum.photos/seed/smk-gal1/400/300',
-      'https://picsum.photos/seed/smk-gal2/400/300',
-      'https://picsum.photos/seed/smk-gal3/400/300',
-      'https://picsum.photos/seed/smk-gal4/400/300',
-      'https://picsum.photos/seed/smk-gal5/400/300',
-      'https://picsum.photos/seed/smk-gal6/400/300',
-    ],
-    achievements: [
-      {
-        image: 'https://picsum.photos/seed/smk-ach1/400/400',
-        title: 'Pemenang Lomba Kompetensi Siswa',
-        level: 'Nasional',
-        date: '01 Oktober 2023',
-        description: 'Juara dalam bidang Desain Grafis, menunjukkan kreativitas dan skill teknis.',
-      },
-      {
-        image: 'https://picsum.photos/seed/smk-ach2/400/400',
-        title: 'Best Startup Idea Competition',
-        level: 'Provinsi',
-        date: '20 September 2023',
-        description: 'Mengembangkan ide bisnis berbasis teknologi yang solutif dan inovatif.',
-      },
+      { image: 'https://i.imgur.com/T0YV8yD.png', title: 'Medali Emas Kejuaraan Pencak Silat', level: 'Tingkat Nasional', date: '2023', description: 'Atlet pencak silat meraih medali emas di kejuaraan nasional.' },
+      { image: 'https://i.imgur.com/uR2Zf8J.png', title: 'Finalis Lomba Robotik', level: 'Tingkat Nasional', date: '2023', description: 'Tim robotik sekolah berhasil masuk babak final.' },
     ],
     detailsUrl: '#',
     accentColor: 'border-green-500',
     textColor: 'text-green-600',
   },
   {
+    id: 'smk-minnatul-huda',
+    name: 'SMK Minnatul Huda',
+    logo: 'https://imgur.com/4hdcTD7.png',
+    description: 'Menyiapkan lulusan yang kompeten, profesional, dan siap kerja di era global.',
+    summary: {
+      foundedYear: 2012,
+      headmaster: 'Bapak H. Muhammad Yusuf, S.T.',
+    },
+    vision: 'Menjadi SMK rujukan yang menghasilkan lulusan berdaya saing tinggi, berjiwa wirausaha, dan berakhlak mulia.',
+    mission: [
+      'Menyelenggarakan pendidikan kejuruan yang berbasis industri (link and match).',
+      'Membekali siswa dengan kompetensi teknis dan soft skills yang dibutuhkan dunia kerja.',
+      'Mengembangkan jiwa entrepreneurship melalui program teaching factory.',
+      'Menanamkan nilai-nilai profesionalisme, integritas, dan etos kerja Islami.',
+    ],
+    featuredPrograms: [
+      { icon: 'tools', title: 'Teknik Kendaraan Ringan', description: 'Jurusan unggulan dengan fasilitas bengkel modern dan kerjasama industri.' },
+      { icon: 'computer', title: 'Rekayasa Perangkat Lunak', description: 'Mencetak programmer muda yang siap bersaing di industri teknologi.' },
+      { icon: 'briefcase', title: 'Akuntansi & Keuangan Lembaga', description: 'Program keahlian yang menghasilkan tenaga akuntan yang handal.' },
+    ],
+    statistics: {
+      students: 500,
+      alumni: 800,
+      teachers: 55,
+      achievements: 62,
+      extracurriculars: 15,
+    },
+    mainImage: 'https://i.imgur.com/A6tFm2k.jpeg',
+    youtubeThumbnail: 'https://i.imgur.com/hX8eL6k.jpeg',
+    youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    gallery: [
+      'https://i.imgur.com/pYxCR2Z.jpeg',
+      'https://i.imgur.com/xO9f0fS.jpeg',
+      'https://i.imgur.com/qR1p8Zg.jpeg',
+      'https://i.imgur.com/oV2D8vJ.jpeg',
+      'https://i.imgur.com/nJ5J0fL.jpeg',
+      'https://i.imgur.com/iJ6m1wR.jpeg',
+    ],
+    achievements: [
+      { image: 'https://i.imgur.com/T0YV8yD.png', title: 'Juara 1 Lomba Kompetensi Siswa (LKS)', level: 'Tingkat Provinsi', date: '2023', description: 'Siswa jurusan TKJ memenangkan LKS bidang Networking Support.' },
+      { image: 'https://i.imgur.com/uR2Zf8J.png', title: 'Best Enterprise Award', level: 'Student Company Competition', date: '2022', description: 'Perusahaan siswa (SC) kami memenangkan penghargaan bisnis terbaik.' },
+    ],
+    detailsUrl: '#',
+    accentColor: 'border-red-500',
+    textColor: 'text-red-600',
+  },
+  {
     id: 'yayasan-minnatul-huda',
     name: 'Yayasan Minnatul Huda',
     logo: 'https://imgur.com/4hdcTD7.png',
-    description: 'Berkomitmen pada pengabdian masyarakat melalui pendidikan berkualitas, program sosial, dan pemberdayaan umat.',
+    description: 'Mengabdi untuk umat, membangun peradaban melalui pendidikan Islam.',
     summary: {
       foundedYear: 1998,
-      headmaster: 'KH. Abdullah Said',
+      headmaster: 'KH. Abdurrahman',
     },
-    vision: "Menjadi yayasan Islam terdepan dalam membangun peradaban melalui pendidikan, dakwah, dan pemberdayaan sosial ekonomi umat.",
+    vision: 'Menjadi lembaga penggerak kemajuan pendidikan Islam yang kontributif bagi masyarakat, bangsa, dan agama.',
     mission: [
-      "Menyediakan layanan pendidikan yang terjangkau dan berkualitas untuk semua lapisan masyarakat.",
-      "Mengelola dana ZISWAF (Zakat, Infaq, Shadaqah, Wakaf) secara profesional dan amanah.",
-      "Melaksanakan program dakwah yang mencerahkan dan menyejukkan.",
-      "Memberdayakan ekonomi masyarakat melalui program pelatihan dan bantuan modal usaha.",
+      'Menyediakan layanan pendidikan Islam yang berkualitas dan terjangkau untuk semua kalangan.',
+      'Mengelola dan mengembangkan unit-unit pendidikan secara profesional dan amanah.',
+      'Berperan aktif dalam kegiatan sosial dan dakwah di masyarakat.',
+      'Membangun jaringan kerjasama dengan berbagai lembaga untuk kemajuan pendidikan.',
     ],
     featuredPrograms: [
-      { icon: 'heart', title: 'Layanan Sosial & Kesehatan', description: 'Program bantuan untuk dhuafa, yatim, serta layanan kesehatan gratis bagi masyarakat.' },
-      { icon: 'users', title: 'Pemberdayaan Ekonomi Umat', description: 'Pelatihan skill, bantuan modal usaha mikro, dan pembinaan UMKM di lingkungan pesantren.' },
-      { icon: 'book', title: 'Kajian Islam & Dakwah Digital', description: 'Menyebarkan nilai-nilai Islam melalui kajian rutin, seminar, dan konten dakwah di platform digital.' },
+      { icon: 'heart', title: 'Program Beasiswa Santri', description: 'Memberikan bantuan pendidikan bagi santri berprestasi dan kurang mampu.' },
+      { icon: 'users', title: 'Pengembangan Masyarakat', description: 'Program pemberdayaan ekonomi dan sosial untuk masyarakat sekitar pesantren.' },
+      { icon: 'book', title: 'Kajian Islam Rutin', description: 'Mengadakan majelis ilmu dan kajian kitab kuning yang terbuka untuk umum.' },
     ],
     statistics: {
-      students: 1870,
-      alumni: 6800,
-      teachers: 160,
-      achievements: 660,
-      extracurriculars: 5,
+      students: 1270,
+      alumni: 3500,
+      teachers: 130,
+      achievements: 185,
+      extracurriculars: 45,
     },
-    mainImage: 'https://picsum.photos/seed/yayasan-main/1200/800',
-    youtubeThumbnail: 'https://picsum.photos/seed/yayasan-yt/800/450',
+    mainImage: 'https://i.imgur.com/A6tFm2k.jpeg',
+    youtubeThumbnail: 'https://i.imgur.com/hX8eL6k.jpeg',
     youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     gallery: [
-      'https://picsum.photos/seed/yayasan-gal1/400/300',
-      'https://picsum.photos/seed/yayasan-gal2/400/300',
-      'https://picsum.photos/seed/yayasan-gal3/400/300',
-      'https://picsum.photos/seed/yayasan-gal4/400/300',
-      'https://picsum.photos/seed/yayasan-gal5/400/300',
-      'https://picsum.photos/seed/yayasan-gal6/400/300',
+      'https://i.imgur.com/pYxCR2Z.jpeg',
+      'https://i.imgur.com/xO9f0fS.jpeg',
+      'https://i.imgur.com/qR1p8Zg.jpeg',
+      'https://i.imgur.com/oV2D8vJ.jpeg',
+      'https://i.imgur.com/nJ5J0fL.jpeg',
+      'https://i.imgur.com/iJ6m1wR.jpeg',
     ],
     achievements: [
-      {
-        image: 'https://picsum.photos/seed/yayasan-ach1/400/400',
-        title: 'Penghargaan Yayasan Peduli Pendidikan',
-        level: 'Nasional',
-        date: '10 Januari 2024',
-        description: 'Diakui atas kontribusi signifikan dalam meningkatkan akses dan mutu pendidikan.',
-      },
-      {
-        image: 'https://picsum.photos/seed/yayasan-ach2/400/400',
-        title: 'Program Desa Binaan Terbaik',
-        level: 'Provinsi',
-        date: '12 November 2023',
-        description: 'Sukses dalam program pemberdayaan ekonomi dan sosial masyarakat desa.',
-      },
+      { image: 'https://i.imgur.com/T0YV8yD.png', title: 'Lembaga Pendidikan Islam Terbaik', level: 'Anugerah Pendidikan', date: '2021', description: 'Mendapat penghargaan sebagai lembaga pendidikan dengan tata kelola terbaik.' },
+      { image: 'https://i.imgur.com/uR2Zf8J.png', title: 'Program Sosial Terinspiratif', level: 'Community Choice Award', date: '2020', description: 'Program beasiswa santri mendapat apresiasi dari masyarakat luas.' },
     ],
     detailsUrl: '#',
-    accentColor: 'border-stone-500',
-    textColor: 'text-stone-600',
-  },
+    accentColor: 'border-amber-500',
+    textColor: 'text-amber-600',
+  }
 ];

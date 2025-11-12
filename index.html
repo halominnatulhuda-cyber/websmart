@@ -1,23 +1,23 @@
 <!-- 
-Website: Yayasan Minnatul Huda
-Halaman: Beranda
-Deskripsi: Halaman utama website Yayasan Minnatul Huda, menampilkan profil singkat, unit pendidikan, prestasi, dan galeri lembaga.
-Bagian dari website utama Yayasan Minnatul Huda.
+   Website: Yayasan Minnatul Huda
+   Halaman: Login
+   Deskripsi: Halaman autentikasi pengguna untuk masuk ke sistem internal Yayasan Minnatul Huda.
+   Bagian dari website utama Yayasan Minnatul Huda.
 -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Website resmi Yayasan Minnatul Huda. Menyajikan informasi tentang lembaga, unit pendidikan, prestasi, galeri, dan pendaftaran santri.">
-    <meta name="keywords" content="Yayasan Minnatul Huda, Beranda, Pendidikan Islam, Prestasi, Galeri, Pendaftaran Santri">
+    <title>Login | Yayasan Minnatul Huda</title>
+    <meta name="description" content="Halaman login resmi Yayasan Minnatul Huda untuk akses pengguna ke sistem internal dan fitur digital.">
+    <meta name="keywords" content="Login Minnatul Huda, Masuk Akun, Dashboard Santri, Sistem Yayasan, Autentikasi Pengguna">
     <meta name="author" content="Yayasan Minnatul Huda">
-    <meta name="page" content="beranda">
-    <meta property="og:title" content="Beranda Yayasan Minnatul Huda">
-    <meta property="og:description" content="Halaman utama Yayasan Minnatul Huda yang memuat informasi lembaga, unit pendidikan, prestasi, dan galeri.">
+    <meta name="page" content="login">
+    <meta property="og:title" content="Login - Yayasan Minnatul Huda">
+    <meta property="og:description" content="Masuk ke sistem Yayasan Minnatul Huda untuk mengakses fitur digital dan data santri.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Yayasan Minnatul Huda">
-    <title>Yayasan Minnatul Huda | Beranda Resmi</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -126,6 +126,25 @@ Bagian dari website utama Yayasan Minnatul Huda.
         display: none;
       }
 
+      /* Footer Link Hover */
+      .footer-link-hover {
+        position: relative;
+        display: inline-block;
+      }
+      .footer-link-hover::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: #D97706; /* Amber-600 */
+        transition: width 0.3s ease-out;
+      }
+      .footer-link-hover:hover::after {
+        width: 100%;
+      }
+
       /* Search Modal Animations & Styles */
       @keyframes modal-fade-in {
         from { opacity: 0; }
@@ -137,45 +156,6 @@ Bagian dari website utama Yayasan Minnatul Huda.
       }
       .animate-modal-fade-in { animation: modal-fade-in 0.3s ease-out forwards; }
       .animate-modal-zoom-in { animation: modal-zoom-in 0.3s ease-out forwards; }
-      
-      /* Scroll-triggered Animations */
-      .scroll-animate {
-        opacity: 0;
-        transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
-        will-change: opacity, transform;
-      }
-      .scroll-animate.is-visible {
-        opacity: 1;
-        transform: none; /* A single reset for all transform types */
-      }
-      
-      /* Animation Type Modifiers */
-      .animate-fade-up { transform: translateY(40px); }
-      .animate-fade-down { transform: translateY(-40px); }
-      .animate-slide-in-left { transform: translateX(-50px); }
-      .animate-slide-in-right { transform: translateX(50px); }
-      .animate-zoom-in { transform: scale(0.9); }
-
-      /* Mobile Slider Styles */
-      .mobile-slider {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        gap: 1rem;
-        /* Add horizontal padding to ensure first/last items can be centered */
-        /* 50% of viewport width minus half of the item's width (40vw) = 10vw */
-        padding: 0 10vw;
-      }
-      .mobile-slider > * {
-        scroll-snap-align: center;
-        flex-shrink: 0;
-        width: 80vw;
-      }
-      /* Hide scrollbar for mobile slider */
-      .mobile-slider::-webkit-scrollbar { display: none; }
-      .mobile-slider { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 <script type="importmap">
 {
