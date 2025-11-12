@@ -1,10 +1,10 @@
-// Fix: Define and export all necessary types for the application.
-export interface Achievement {
-  image: string;
-  title: string;
-  level: string;
-  date: string;
-  description: string;
+// FIX: Add missing type definitions used across components.
+export interface QuickAccessButton {
+  id: string;
+  label: string;
+  targetId: string;
+  bgColor: string;
+  hoverBgColor: string;
 }
 
 export interface FeaturedProgram {
@@ -13,18 +13,25 @@ export interface FeaturedProgram {
   description: string;
 }
 
+export interface Achievement {
+  image: string;
+  title: string;
+  level: string;
+  date: string;
+  description: string;
+}
+
 export interface School {
   id: string;
   name: string;
-  logo: string;
   description: string;
+  logo: string;
+  accentColor: string;
+  textColor: string;
   summary: {
     foundedYear: number;
     headmaster: string;
   };
-  vision: string;
-  mission: string[];
-  featuredPrograms: FeaturedProgram[];
   statistics: {
     students: number;
     alumni: number;
@@ -32,20 +39,11 @@ export interface School {
     achievements: number;
     extracurriculars: number;
   };
-  mainImage: string;
-  youtubeThumbnail: string;
   youtubeUrl: string;
+  youtubeThumbnail: string;
+  vision: string;
+  mission: string[];
+  featuredPrograms: FeaturedProgram[];
   gallery: string[];
   achievements: Achievement[];
-  detailsUrl: string;
-  accentColor: string;
-  textColor: string;
-}
-
-export interface QuickAccessButton {
-  id: string;
-  label: string;
-  targetId: string;
-  bgColor: string;
-  hoverBgColor: string;
 }

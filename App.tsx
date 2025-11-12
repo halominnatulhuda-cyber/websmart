@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import AboutPage from './components/AboutPage';
-import CtaSection from './components/CtaSection';
+import PendaftaranPage from './components/AboutPage'; // Renamed internally to PendaftaranPage
 import Footer from './components/Footer';
 import { SearchResult } from './searchIndex';
+import { NavItem } from './navigation';
 
 const App: React.FC = () => {
   const scrollToId = (id: string, headerOffset: number = 80) => {
@@ -20,9 +20,32 @@ const App: React.FC = () => {
     }
   };
   
+  const handleNavClick = (item: NavItem) => {
+    if (item.type === 'link' && item.href) {
+      window.open(item.href, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    
+    const id = item.targetId;
+    if (!id) return;
+    
+    if (id === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+    }
+    
+    if (id === 'contact') {
+      const footer = document.getElementById('contact');
+      if (footer) {
+        footer.scrollIntoView({ behavior: 'smooth' });
+      }
+      return;
+    }
+
+    scrollToId(id, 100);
+  };
+  
   const handleSearchNavigation = (result: SearchResult) => {
-    // Diasumsikan pencarian hanya menavigasi dalam halaman saat ini.
-    // Jika hasil pencarian bisa berada di halaman lain, logika tambahan diperlukan di sini.
     setTimeout(() => {
         scrollToId(result.targetId);
     }, 0);
@@ -30,12 +53,11 @@ const App: React.FC = () => {
 
   return (
     <div className="bg-stone-50 text-gray-800">
-      <Header onSearchResultClick={handleSearchNavigation} />
-      <Hero onButtonClick={() => scrollToId('profile')} />
+      <Header onNavigate={handleNavClick} onSearchResultClick={handleSearchNavigation} />
+      <Hero onButtonClick={() => scrollToId('pendaftaran')} />
       <main>
-        <AboutPage />
+        <PendaftaranPage />
       </main>
-      <CtaSection />
       <Footer />
     </div>
   );
