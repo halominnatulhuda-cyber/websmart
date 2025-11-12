@@ -1,44 +1,65 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
+
+// Import Components
 import Header from './components/Header';
-import Hero from './components/Hero';
-import AboutPage from './components/AboutPage';
+import Chat from './components/Chat';
 import CtaSection from './components/CtaSection';
 import Footer from './components/Footer';
-import { SearchResult } from './searchIndex';
+import SearchModal from './components/SearchModal';
+
+// Import types and data
+import { SearchResult } from './types';
 
 const App: React.FC = () => {
-  const scrollToId = (id: string, headerOffset: number = 80) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
-      window.scrollTo({
-        top: offsetPosition > 0 ? offsetPosition : 0,
-        behavior: 'smooth'
-      });
-    }
-  };
-  
-  const handleSearchNavigation = (result: SearchResult) => {
-    // Diasumsikan pencarian hanya menavigasi dalam halaman saat ini.
-    // Jika hasil pencarian bisa berada di halaman lain, logika tambahan diperlukan di sini.
-    setTimeout(() => {
-        scrollToId(result.targetId);
-    }, 0);
-  };
+    const handleSearchClick = useCallback(() => {
+        setIsSearchModalOpen(true);
+    }, []);
 
-  return (
-    <div className="bg-stone-50 text-gray-800">
-      <Header onSearchResultClick={handleSearchNavigation} />
-      <Hero onButtonClick={() => scrollToId('profile')} />
-      <main>
-        <AboutPage />
-      </main>
-      <CtaSection />
-      <Footer />
-    </div>
-  );
+    const handleSearchClose = useCallback(() => {
+        setIsSearchModalOpen(false);
+    }, []);
+    
+    const handleSearchResultClick = (result: SearchResult) => {
+        const element = document.getElementById(result.targetId);
+        if (element) {
+            const headerOffset = 80; 
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+            window.scrollTo({
+                 top: offsetPosition,
+                 behavior: "smooth"
+            });
+        }
+    };
+
+    return (
+        <div className="bg-white text-gray-800">
+            <Header onSearchClick={handleSearchClick} />
+            
+            <SearchModal 
+                isOpen={isSearchModalOpen}
+                onClose={handleSearchClose}
+                onResultClick={handleSearchResultClick}
+            />
+            
+            <main className="pt-20">
+                <section id="ai" className="py-16 md:py-24 bg-dots-pattern">
+                    <div className="container mx-auto px-4 h-[85vh] max-h-[800px] flex justify-center">
+                         <Chat />
+                    </div>
+                </section>
+                
+                <div id="cta">
+                    <CtaSection />
+                </div>
+            </main>
+
+            <Footer />
+        </div>
+    );
 };
 
 export default App;
