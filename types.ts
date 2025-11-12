@@ -1,5 +1,58 @@
-// Fix: Define and export all necessary types for the application.
-export interface Achievement {
+// types.ts
+export interface FoundationAchievement {
+  year: number;
+  award: string;
+  organizer: string;
+  description: string;
+  image: string; // Certificate or photo
+  logo: string; // Organizer's logo
+}
+
+export type AchievementCategory = 'Akademik' | 'Seni' | 'Teknologi' | 'Olahraga';
+
+export interface StudentAchievement {
+  id: string;
+  name: string;
+  achievement: string;
+  year: number;
+  category: AchievementCategory;
+  image: string;
+  story: string;
+}
+
+export interface AchievementArticle {
+    id: string;
+    title: string;
+    date: string;
+    image: string;
+    teaser: string;
+    fullContent: string;
+}
+
+export interface Testimonial {
+    quote: string;
+    author: string;
+    role: string;
+}
+
+// FIX: Add QuickAccessButton interface to resolve error in QuickAccess.tsx
+export interface QuickAccessButton {
+  id: string;
+  label: string;
+  targetId: string;
+  bgColor: string;
+  hoverBgColor: string;
+}
+
+// FIX: Add FeaturedProgram interface to resolve error in SchoolSection.tsx
+export interface FeaturedProgram {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+// FIX: Add SchoolAchievement interface for use within the School type
+export interface SchoolAchievement {
   image: string;
   title: string;
   level: string;
@@ -7,24 +60,18 @@ export interface Achievement {
   description: string;
 }
 
-export interface FeaturedProgram {
-  icon: string;
-  title: string;
-  description: string;
-}
-
+// FIX: Add School interface to resolve errors in SchoolSection.tsx and SchoolViewPager.tsx
 export interface School {
   id: string;
   name: string;
-  logo: string;
   description: string;
+  logo: string;
+  accentColor: string;
+  textColor: string;
   summary: {
     foundedYear: number;
     headmaster: string;
   };
-  vision: string;
-  mission: string[];
-  featuredPrograms: FeaturedProgram[];
   statistics: {
     students: number;
     alumni: number;
@@ -32,20 +79,11 @@ export interface School {
     achievements: number;
     extracurriculars: number;
   };
-  mainImage: string;
-  youtubeThumbnail: string;
   youtubeUrl: string;
+  youtubeThumbnail: string;
+  vision: string;
+  mission: string[];
+  featuredPrograms: FeaturedProgram[];
   gallery: string[];
-  achievements: Achievement[];
-  detailsUrl: string;
-  accentColor: string;
-  textColor: string;
-}
-
-export interface QuickAccessButton {
-  id: string;
-  label: string;
-  targetId: string;
-  bgColor: string;
-  hoverBgColor: string;
+  achievements: SchoolAchievement[];
 }
